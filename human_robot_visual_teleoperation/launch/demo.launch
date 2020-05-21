@@ -1,0 +1,39 @@
+<launch>
+    <!-- args -->
+    <arg name="driver" default="true" />
+    <arg name="rviz" default="true" />
+    <arg name="tracker_name" default="tracker" />
+    <arg name="baxter_gazebo" default="true"/> 
+    <arg name="run_demo" default="true"/> 
+
+    <!-- Launch Baxter gazebo -->
+    <group if="$(arg baxter_gazebo)" >
+        <include file="$(find baxter_gazebo)/launch/baxter_world.launch" />
+    </group>
+
+    <!-- Launch Depth Sensor with Openni_camera...-->
+    <group if="$(arg driver)" >
+            <!-- Include Launch files file="$(find pkg-name)/path/filename.extension" -->
+            <include file="$(find openni2_launch)/launch/openni2.launch" />
+    </group>
+
+    <!-- This node run after the depeth sensor is launched to do the tracking  OpenNi2 Tracker -->
+    <node pkg="openni2_tracker" type="tracker" name="tracker" output="screen" respawn="true" >
+        <param name="tf_prefix"        value="$(arg tracker_name)" />
+        <param name="relative_frame"   value="/$(arg tracker_name)_depth_frame" /> 
+    </node>
+
+    <!-- TF Static Transforms to World -->
+    <node pkg="tf" type="static_transform_publisher" name="world_to_tracker" 
+    args=" 0 0 1.25 1.5707 0 1.7707 /world /$(arg tracker_name)_depth_frame 100"/>
+
+    <!-- Start rviz with default config file... -->
+    <group if="$(arg rviz)" >
+        <node pkg="rviz" type="rviz" name="rviz" args="-d $(find human_robot_visual_teleoperation)/config/tracker_config.rviz" />
+    </group>
+
+    <!-- Start the program -->
+    <group if="$(arg run_demo)" >
+        <node pkg="human_robot_visual_teleoperation" type="test1.py" name="test1" output="screen" respawn="true" /> 
+    </group>
+</launch> 
