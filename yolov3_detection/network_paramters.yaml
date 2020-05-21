@@ -1,0 +1,5 @@
+
+confThreshold: 0.5
+nmsThreshold: 0.4
+inputWidth: 416
+inputHeight: 416
