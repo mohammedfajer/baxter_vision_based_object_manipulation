@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.4">
+  <model name="kinect">
+
+    <static>true</static>
+    <!-- <pose>0 0 0.036 0 0 0</pose> -->
+    <!-- <pose>0 0 0.0 0 0 -3.064438</pose> -->
+
+    <link name="kinect_link">
+
+      <inertial>
+        <mass>0.1</mass>
+      </inertial>
+
+      <collision name="kinect_collision">
+        <geometry>
+          <box>
+            <size>0.073000 0.276000 0.072000</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="kinect_mesh">
+        <cast_shadows> true </cast_shadows>
+        <geometry>
+          <mesh>
+            <uri>model://kinect/meshes/kinect.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <sensor name="kinect_camera" type="depth">
+        <always_on>1</always_on>
+        <visualize>true</visualize> 
+        <camera>
+            <horizontal_fov>1.047</horizontal_fov>  
+            <image>
+                <width>640</width>
+                <height>480</height>
+                <format>R8G8B8</format>
+            </image>
+            <depth_camera>
+
+            </depth_camera>
+            <clip>
+                <near>0.1</near>
+                <far>100</far>
+            </clip>
+        </camera>
+
+        <plugin name="kinect" filename="/opt/ros/indigo/lib/libgazebo_ros_openni_kinect.so">
+
+            <alwaysOn>true</alwaysOn>
+            <updateRate>10.0</updateRate>
+            <cameraName>camera</cameraName>
+            <frameName>openni_camera_link</frameName>                   
+            <imageTopicName>rgb/image_raw</imageTopicName>
+            <depthImageTopicName>depth/image_raw</depthImageTopicName>
+            <pointCloudTopicName>depth/points</pointCloudTopicName>
+            <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>              
+            <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>            
+            <pointCloudCutoff>0.4</pointCloudCutoff>                
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
+            <CxPrime>0.0</CxPrime>
+            <Cx>0.0</Cx>
+            <Cy>0.0</Cy>
+            <focalLength>0.0</focalLength>          
+
+        </plugin>
+
+
+      </sensor>
+
+  </link>
+
+
+
+
+</model>
+
+</sdf>

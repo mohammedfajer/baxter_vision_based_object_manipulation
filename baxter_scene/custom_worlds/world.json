@@ -1,0 +1,156 @@
+{
+    "models":
+    [
+        {
+            "name": "Middle_Table",
+            "path": "PnPTable/model.sdf",
+            "pose":
+            {
+                "position": "1 0 0",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Left_Side_Table",
+            "path": "PnPTable/model.sdf",
+            "pose":
+            {
+                "position": "0 1.1 0",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Right_Side_Table",
+            "path": "PnPTable/model.sdf",
+            "pose":
+            {
+                "position": "0 -1.1 0",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Left_Side_Box",
+            "path": "PnPBox/model.sdf",
+            "pose":
+            {
+                "position": "0 1.1 0.78",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Right_Side_Box",
+            "path": "PnPBox/model.sdf",
+            "pose":
+            {
+                "position": "0 -1.1 0.78",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Banana_Model",
+            "path": "PnPBanana/model.sdf",
+            "pose":
+            {
+                "position": "0.8 0.2 0.8",
+                "orientation": "0 0 -1.537093 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "CheezeIt_Model",
+            "path": "PnPCheezeIt/model.sdf",
+            "pose":
+            {
+                "position": "0.8 -0.2 0.88",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Camera_Stand",
+            "path": "camera_stand/model.sdf",
+            "pose":
+            {
+                "position": "1.7 0 0",
+                "orientation": "0 0 3.75246 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Left_Lamp",
+            "path": "lamp/model.sdf",
+            "pose":
+            {
+                "position": "-1 2 0.91",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Right_Lamp",
+            "path": "lamp/model.sdf",
+            "pose":
+            {
+                "position": "-1 -2 0.91",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Floor",
+            "path": "floor/model.sdf",
+            "pose":
+            {
+                "position": "0.3 0 0.00625",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Background_Wall",
+            "path": "wall_one/model.sdf",
+            "pose":
+            {
+                "position": "-4 -4.1 0",
+                "orientation": "0 0 0 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Left_Side_Wall",
+            "path": "wall/model.sdf",
+            "pose":
+            {
+                "position": "-4 -4.1 0",
+                "orientation": "0 0 -1.01229 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "Right_Side_Wall",
+            "path": "wall/model.sdf",
+            "pose":
+            {
+                "position": "4.7 3.5 0",
+                "orientation": "0 0 0.95993129251877 1"
+            },
+            "reference_frame": "world"
+        },
+        {
+            "name": "RGB_D_Sensor_Kinect_Model",
+            "path": "kinect/model-1_4.sdf",
+            "pose":
+            {
+
+                "position": "1.7 0 1.472",
+                "orientation": "-10 0 40 1"
+            },
+            "reference_frame": "world"
+        }
+    ]
+}

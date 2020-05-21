@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.4">
+    <model name="camera_stand">
+        <static> true </static>
+        <link name="camera_stand_link">
+            <collision name="camera_stand_collision">
+                <geometry>
+                    <box>
+                        <size> 0.41275 0.41275 2.41486 </size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="camera_stand_mesh">
+                <cast_shadows> true </cast_shadows>
+                <geometry>
+                    <mesh>
+                        <uri>model://camera_stand/camera_stand.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model>
+</sdf>
