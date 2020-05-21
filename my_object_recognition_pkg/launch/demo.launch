@@ -1,0 +1,78 @@
+<launch>
+
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="extra_gazebo_args" default=""/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="physics" default="ode"/>
+  <arg name="verbose" default="false"/>
+  <arg name="world_name" default="$(find my_object_recognition_pkg)/worlds/demo.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+
+  <!-- set use_sim_time flag -->
+  <group if="$(arg use_sim_time)">
+    <param name="/use_sim_time" value="true" />
+  </group>
+
+  <!-- set command arguments -->
+  <arg unless="$(arg paused)" name="command_arg1" value=""/>
+  <arg     if="$(arg paused)" name="command_arg1" value="-u"/>
+  <arg unless="$(arg headless)" name="command_arg2" value=""/>
+  <arg     if="$(arg headless)" name="command_arg2" value="-r"/>
+  <arg unless="$(arg verbose)" name="command_arg3" value=""/>
+  <arg     if="$(arg verbose)" name="command_arg3" value="--verbose"/>
+  <arg unless="$(arg debug)" name="script_type" value="gzserver"/>
+  <arg     if="$(arg debug)" name="script_type" value="debug"/>
+
+  <!-- start gazebo server-->
+  <node name="gazebo" pkg="gazebo_ros" type="$(arg script_type)" respawn="false" output="screen"
+	args="$(arg command_arg1) $(arg command_arg2) $(arg command_arg3) -e $(arg physics) $(arg extra_gazebo_args) $(arg world_name)" />
+
+  <!-- start gazebo client -->
+  <group if="$(arg gui)">
+    <node name="gazebo_gui" pkg="gazebo_ros" type="gzclient" respawn="false" output="screen"/>
+  </group>
+
+	<!-- These arguments load the electric grippers, for example left_electric_gripper:=true -->
+	<arg name="left_electric_gripper" default="true"/>
+	<arg name="right_electric_gripper" default="true"/>
+
+	<!--include description and control launch files -->
+	<include file="$(find baxter_gazebo)/launch/robot_description.launch"/>
+
+	<!-- Load the software version into the ROS Parameter Server -->
+  <param name="rethink/software_version" value="1.2.0" />
+
+  <!-- Publish a static transform between the world and the base of the robot -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_to_world" args="0 0 0 0 0 0 1 world base" />
+
+  <!-- Publish a static transform between the world and the base of the camera -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_camera" args="1 0.8 0 0 0 -1.5708 world camera_link" />
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+	args="-param robot_description -urdf -x 0 -y 0 -z 0.95 -model baxter
+	      -J baxter::right_s0 -0.272659
+	      -J baxter::right_s1 1.04701
+	      -J baxter::right_e0 -0.00123203
+	      -J baxter::right_e1 0.49262
+	      -J baxter::right_w0 -0.0806423
+	      -J baxter::right_w1 -0.0620532
+	      -J baxter::right_w2 0.0265941
+	      -J baxter::left_s0 0.192483
+	      -J baxter::left_s1 1.047
+	      -J baxter::left_e0 0.000806359
+	      -J baxter::left_e1 0.491094
+	      -J baxter::left_w0 -0.178079
+	      -J baxter::left_w1 -0.0610333
+	      -J baxter::left_w2 -0.0124707" />
+
+  <!-- ros_control baxter launch file -->
+  <include file="$(find baxter_sim_hardware)/launch/baxter_sdk_control.launch">
+      <arg name="right_electric_gripper" value="$(arg right_electric_gripper)"/>
+      <arg name="left_electric_gripper" value="$(arg left_electric_gripper)"/>
+  </include>
+
+</launch>

@@ -1,0 +1,195 @@
+#!/usr/bin/env python
+
+import sys
+import copy
+import rospy
+import moveit_commander
+import moveit_msgs.msg
+import geometry_msgs.msg
+
+import baxter_interface
+from baxter_interface import CHECK_VERSION
+from moveit_msgs.srv import GetPositionFK
+from std_msgs.msg import Header
+from moveit_msgs.msg import RobotState
+
+import tf
+
+
+def compute_FK(group, joint_values, links):
+    rospy.wait_for_service('compute_fk')
+    try:
+        compute_fk = rospy.ServiceProxy('compute_fk', GetPositionFK)
+        header = Header()
+        header.stamp = rospy.Time.now()
+        header.frame_id = group.get_pose_reference_frame()
+
+        robot_state = RobotState()
+        robot_state.joint_state.header = header
+        robot_state.joint_state.name = group.get_active_joints()
+        robot_state.joint_state.position = joint_values
+
+        result = compute_fk( header, links, robot_state )
+
+        return result.pose_stamped
+    except rospy.ServiceException, e:
+        rospy.INFO( 'service call failed: %s' % e )
+
+
+
+def run():
+
+    print('========== starting robot_arm_motion.py ==========')
+    rospy.init_node('robot_arm_motion', anonymous=True)
+
+    moveit_commander.roscpp_initialize(sys.argv)
+
+    tf_listener = tf.TransformListener()
+
+    # robot = baxter_interface.RobotEnable(CHECK_VERSION)
+    # if not robot.state().enabled:
+    #     print(' enabling the robot ')
+    #     robot.enable()
+
+    # left_limb = baxter_interface.limb.Limb('left')
+    # right_limb = baxter_interface.limb.Limb('right')
+    # # Move robot arms to their neutral pose
+    # left_limb.move_to_neutral()
+    # right_limb.move_to_neutral()
+
+    # RobotCommander object: an interface to the robot as a whole
+    baxter_robot = moveit_commander.RobotCommander()
+
+    # PlanningSceneInterface object: an interace to the world surrounding the robot
+    scene = moveit_commander.PlanningSceneInterface()
+
+    # MoveGroupCommander object: an interface to one group of joints
+    group = moveit_commander.MoveGroupCommander('left_arm')
+    group.allow_replanning(True)
+    group.set_pose_reference_frame('base')
+    group.set_planner_id('RRTConnectKConfigDefault')
+    group.set_goal_tolerance(0.1)
+    group.set_num_planning_attempts(10)
+    group.set_planning_time(5.0)
+    group.set_max_velocity_scaling_factor(1.0)
+    group.set_max_acceleration_scaling_factor(1.0)
+    
+
+    # DisplayTrajectory publisher: publish trajectories for RVIZ to visualize
+    display_trajectory_publisher = rospy.Publisher('/move_group/display_planned_path', moveit_msgs.msg.DisplayTrajectory, queue_size=1)
+
+    print('========== waiting for RVIZ ==========')
+    rospy.sleep(5)
+
+    print('========== baxter reference frame: %s' % group.get_planning_frame())
+    print('========== baxter end effector link: %s' % group.get_end_effector_link())
+    print('========== baxter joint groups: %s' % baxter_robot.get_group_names())
+    print('========== baxter robot state: %s' % baxter_robot.get_current_state())
+
+    print('========== generating plan 1 ==========')
+
+    # left_arm_initial_joint_space = {'left_s0': -0.8030, 'left_s1': -0.6756, 'left_e0': 0.0000, 'left_e1': 1.8086, 'left_w0': 0.0000, 'left_w1': 0.0000, 'left_w2': 0.0000}
+    # joint_variables=[left_arm_initial_joint_space[i] for i in left_arm_initial_joint_space]
+    # pose=compute_FK(group, joint_variables, ['left_hand'] )
+    # # print(pose[0].pose.position)
+    # group.set_pose_target(pose[0].pose)
+    # plan1=group.go()
+
+    while not rospy.is_shutdown():
+        try:
+
+            # if tf_listener.frameExists('/world') and tf_listener.frameExists('/object_29'):
+            print('found transformation')
+
+
+            (translation, rotation) = tf_listener.lookupTransform('/base', '/camera_link', rospy.Time())
+            target_pose=geometry_msgs.msg.Pose()
+ 
+            target_pose.orientation.w=1.0
+            target_pose.position.x = translation[0]
+            target_pose.position.x -= 0.3
+            target_pose.position.y = translation[1]
+            target_pose.position.z = translation[2]
+            
+
+            group.set_pose_target(target_pose)
+            plan=group.go()
+           
+            
+            rospy.sleep(5)
+            # else:
+            #     print('transformation not found')
+        except (tf.LookupException, tf.ConnectivityException,tf.ExtrapolationException):
+            pass
+
+        rospy.sleep(5)
+    
+
+    # target_pose = geometry_msgs.msg.Pose()
+    # target_pose.orientation.w = 1.0
+    # target_pose.position = geometry_msgs.msg.Point(0.7, -0.05, 1.1)
+    # group.set_pose_target(target_pose)
+
+    # plan1 = group.plan()
+    # group.execute(plan1,  wait=True)
+
+    # print('========== generating plan 2 ==========')
+    # print('========== planing to a joint space plan2 ==========')
+    # group.clear_pose_targets()
+    # left_arm_initial_joint_space = {'left_s0': -0.8030, 'left_s1': -0.6756, 'left_e0': 0.0000, 'left_e1': 1.8086, 'left_w0': 0.0000, 'left_w1': 0.0000, 'left_w2': 0.0000}
+    # print('=========== joint values:', left_arm_initial_joint_space)
+    # group.set_joint_value_target(left_arm_initial_joint_space)
+    # plan2 = group.go()
+    # print('========== waiting while RVIZ displays plan2 ==========')
+    # rospy.sleep(5)
+
+    # waypoints = []
+
+    # # start with the current pose
+    # waypoints.append(group.get_current_pose().pose)
+
+    # # first orient gripper and move forward (+x)
+    # wpose = geometry_msgs.msg.Pose()
+    # wpose.orientation.w = 1.0
+    # wpose.position.x = waypoints[0].position.x + 0.2
+    # wpose.position.y = waypoints[0].position.y
+    # wpose.position.z = waypoints[0].position.z
+    # waypoints.append(copy.deepcopy(wpose))
+
+    # # second move down
+    # wpose.position.z -= 0.10
+    # waypoints.append(copy.deepcopy(wpose))
+
+    # # third move to the side
+    # wpose.position.y += 0.05
+    # waypoints.append(copy.deepcopy(wpose))
+
+    # (plan3, fraction) = group.compute_cartesian_path(
+    #                          waypoints,   # waypoints to follow
+    #                          0.01,        # eef_step
+    #                          0.0)         # jump_threshold
+
+    # group.go()
+
+    # print "============ Waiting while RVIZ displays plan3..."
+    # rospy.sleep(5)
+
+    # print('========== visualizing plan2 ==========')
+    # display_trajectory = moveit_msgs.msg.DisplayTrajectory()
+    # display_trajectory.trajectory_start = baxter_robot.get_current_state()
+    # display_trajectory.trajectory.append(plan2)
+    # display_trajectory_publisher.publish(display_trajectory)
+    # print('========== waiting while plan1 is visualized (again) ==========')
+    # rospy.sleep(5)
+
+    # group.execute(plan2, wait=True)
+
+    moveit_commander.roscpp_shutdown()
+
+
+if __name__ == "__main__":
+    try:
+        run()
+        rospy.spin()
+    except rospy.ROSInterruptException:
+        pass
