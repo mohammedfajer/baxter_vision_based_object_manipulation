@@ -10,5 +10,5 @@ pending. coming soon
 #### Building and runnung the teleoperation system
 pending. comming soon
 
-#### Building and running the vision-based object manipulation systme
+#### Building and running the vision-based object manipulation system
 pending. comming soon
