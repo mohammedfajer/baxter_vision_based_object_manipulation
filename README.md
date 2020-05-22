@@ -9,8 +9,6 @@
 
 Presenting Final Year Project conducted at the University of Leeds. Reference this project when you choose to use any of the ideas, source code, images or other material found in this repository. 
 
-Documentation will be avaialbe within the next day, including the build process, demo videos, etc... [Last Updated 21/05/2020]
-
 #### LaTeX Reference:
 ```
 @misc{fajer20final, 
