@@ -3,7 +3,7 @@
 
 
 
-[![IMAGE ALT TEXT HERE](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/blob/master/Screenshot%202020-05-22%20at%2015.10.33.png)](https://www.youtube.com/watch?v=5VB1RvyfISM)
+[![IMAGE ALT TEXT HERE](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/blob/master/Screenshot%202020-05-22%20at%2015.10.33.png)](https://www.youtube.com/watch?v=M65fOXamHPY)
 
 © 2019/2020 The University of Leeds and Mohammed Akram Fajer
 
