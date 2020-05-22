@@ -15,24 +15,28 @@ url            = {{https://github.com/mohammedfajer/baxter_vision_based_object_m
 note           = {School of Computing, The University of Leeds}
 }
 ```
+Table of Contents
+======
 
-# Table of contents
 1. [Introduction](#introduction)
 2. [About The Project](#paragraph1)
     1. [How to navigate the repository](#subparagraph1)
     2. [Project Wikis](#subparagraph2)
 
-
-## Introduction <a name="introduction"></a>
+# 1. Introduction  <a name="introduction"></a>
+------
 pending.
 
-## About The Project <a name="paragraph1"></a>
+# 2. About The Project <a name="paragraph1"></a>
+------
 pending.
 
-### How to navigate the repository <a name="subparagraph1"></a>
+## 2.1 How to navigate the repository <a name="subparagraph1"></a>
+------
 pending.
 
-### Project Wikis <a name="subparagraph2"></a>
+## 2.2 Project Wikis <a name="subparagraph2"></a>
+------
 pending.
 
 
