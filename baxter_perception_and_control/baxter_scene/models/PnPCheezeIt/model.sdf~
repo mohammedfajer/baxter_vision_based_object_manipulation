@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="PnPCheezeIt">
+     <static>false</static>
+        <link name="Cheezeit_link">
+            <collision name="Cheezeit_collision">
+                <geometry>
+                    <box>
+                        <size> 0.042 0.18 0.24 </size>
+                    </box>
+                </geometry>
+            </collision>
+            <visual name="Cheezeit_mesh">
+                <cast_shadows> true </cast_shadows>
+                <geometry>
+                    <mesh>
+                        <uri>model://PnPCheezeIt/Cheez_it.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>  
+        </link>
+  </model>
+</sdf>

@@ -1,0 +1,5 @@
+{
+    "pre_trained_weights_path":  "src/baxter_perception_and_control/baxter_perception/yolov3_detection/yolov3_custom_4000.weights",
+    "network_configuration_path": "src/baxter_perception_and_control/baxter_perception/yolov3_detection/yolov3_custom.cfg",
+    "object_names": "src/baxter_perception_and_control/baxter_perception/yolov3_detection/classes.names"
+}

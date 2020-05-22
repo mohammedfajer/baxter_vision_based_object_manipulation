@@ -1,0 +1,90 @@
+
+custom yolov3 object detection package
+    this package bridges using cv_bridge rgb image data from our simulated rgb-d kinect or xtion sensors
+    use trained custom yolov3 deep neural network model on input image and make 2d object detection
+    publishes the object class and its 2d info
+
+point cloud 3d object recognition package
+    locate object 6d pose 
+    since we have the object 3d model from depth sensor point cloud
+    and 2d pose in RGB image 
+    we can locate the object's 6d pose by fitting the 3d model onto the RGB-D image
+
+
+creates the final seem with objects, camera, scene and final environment for pick and place
+baxter_scene
+    models
+    launch
+
+yolov3_detection
+
+
+baxter_perception_and_control
+    baxter_scene            --> ROS package 
+        dependencies
+            rospack
+            baxter_core_msgs
+            baxter_gazebo
+            baxter_interface
+            baxter_tools
+            baxter_tools
+            gazebo_ros
+            gazebo_msgs
+
+    baxter_perception
+        yolov3_detection    --> ROS package [c++/python] -> depends on opencv >= 3.4.# 
+            dependencies
+                cv_bridge
+                image_transport
+                roscpp
+                rospy
+                sensor_msgs
+                std_msgs
+                
+        ros_opencv_bridge   --> ROS package [c++/python] -> depends on opencv 2.4.8
+            dependencies
+                cv_bridge
+                image_transport
+                roscpp
+                rospy
+                sensor_msgs
+                std_msgs
+            
+        obj_6d_localiser    --> ROS package [c++]
+            dependencies
+                roscpp
+                cv_bridge 
+                image_transport
+                sensor_msgs 
+                std_msgs 
+                tf 
+                geometry_msgs
+                pcl
+                pcl_ros
+
+    baxter_control
+        vision_based_pick_and_place --> ROS package [python]
+        dependencies
+            cv_bridge
+            image_transport
+            roscpp
+            rospy
+            sensor_msgs
+            std_msgs
+            tf
+            geometry_msgs
+            moveit_msgs
+            moveit_ros_move_group
+            moveit_ros_planning
+            moveit_ros_robot_interaction
+            moveit_ros_visualization
+            object_recognition_core
+            visualization_msgs
+            rospack
+            baxter_core_msgs
+            baxter_gazebo
+            baxter_interface
+            baxter_tools
+            gazebo_ros
+            gazebo_msgs
+localiser
