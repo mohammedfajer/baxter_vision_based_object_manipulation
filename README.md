@@ -1,6 +1,9 @@
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
 
+
+
+
+[![IMAGE ALT TEXT HERE](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/blob/master/Screenshot%202020-05-22%20at%2015.10.33.png)](https://www.youtube.com/watch?v=5VB1RvyfISM)
 
 © 2019/2020 The University of Leeds and Mohammed Akram Fajer
 
