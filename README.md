@@ -15,3 +15,11 @@ url            = {{https://github.com/mohammedfajer/baxter_vision_based_object_m
 note           = {School of Computing, The University of Leeds}
 }
 ```
+## Table of Contents
+1. Introduction (#Introduction)
+2. About The Project (#About)
+2.1 How to navigate the repository
+2.2 Project Wikis
+
+### Introduction
+### About
