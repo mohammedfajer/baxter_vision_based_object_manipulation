@@ -16,10 +16,12 @@ note           = {School of Computing, The University of Leeds}
 }
 ```
 ## Table of Contents
-1. Introduction (#Introduction)
-2. About The Project (#About)
-2.1 How to navigate the repository
-2.2 Project Wikis
+1. [Introduction] (#Introduction)
+2. [About The Project] (#About)
+  2.1 [How to navigate the repository] (#How to navigate the repository)
+  2.2 [Project Wikis] (#Finding more detials about the project)
 
 ### Introduction
 ### About
+#### How to navigate the repository
+#### Finding more detials about the project
