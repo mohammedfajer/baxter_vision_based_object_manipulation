@@ -1,6 +1,6 @@
 © 2019/2020 The University of Leeds and Mohammed Akram Fajer
 
-This is the Final Year Project conducted at the University of Leeds. Should you choose to use any of the ideas, code, images or other material found in this repository should be referened. 
+Presenting Final Year Project conducted at the University of Leeds. Reference this project when you choose to use any of the ideas, source code, images or other material found in this repository. 
 
 #### LaTeX Reference:
 ```
