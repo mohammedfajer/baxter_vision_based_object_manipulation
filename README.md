@@ -1,14 +1,15 @@
-# baxter_vision_based_object_manipulation
-Human-Robot Interaction for Baxter (3D Perception) and Object Manipulation | Final Year Project
+© 2019/2020 The University of Leeds and Mohammed Akram Fajer
 
-## Note
-Master branch contains the documentation and installation process. The source code for each package can be found in its designated branch. soon will be integrated with the master branch.
+This is the Final Year Project conducted at the University of Leeds. Should you choose to use any of the ideas, code, images or other material found in this repository should be referened. 
 
-#### Installation Process
-pending. coming soon
-
-#### Building and runnung the teleoperation system
-pending. comming soon
-
-#### Building and running the vision-based object manipulation system
-pending. comming soon
+#### LaTeX Reference:
+```
+@misc{fajer20final, 
+author      = {Mohammed Akram Fajer},
+title       = {{Perception and Control of a Bi-manual Industrial Robot for Vision-Based Object Manipulation}},
+submissiondate = {21/05/2020},
+year           = {2020},
+url            = {{https://github.com/mohammedfajer/baxter_vision_based_object_manipulation}},
+note           = {School of Computing, The University of Leeds}
+}
+```
