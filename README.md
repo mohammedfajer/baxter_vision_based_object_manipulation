@@ -28,20 +28,21 @@ Table of Contents
     1. [How to navigate the repository](#subparagraph1)
     2. [Project Wikis](#subparagraph2)
 
-# 1. Introduction  <a name="introduction"></a>
-------
+## 1. Introduction  <a name="introduction"></a>
+This repository document and host the "Perception and Control of a Bi-manual Industrial Robot for Vision-Based Object Manipulation" project, an undergraduate final year project at the School of Computing, University of Leeds. 
+
+This project is not under active development, but feel free to look around.
+
+This project was developmed with Ubuntua 14.04.6 LTS, ROS Indigo and Python 3.x. The robot model used in the development is Baxter from Rethink Robotics.
+
+
+## 2. About The Project <a name="paragraph1"></a>
 pending.
 
-# 2. About The Project <a name="paragraph1"></a>
-------
+### 2.1 How to navigate the repository <a name="subparagraph1"></a>
 pending.
 
-## 2.1 How to navigate the repository <a name="subparagraph1"></a>
-------
-pending.
-
-## 2.2 Project Wikis <a name="subparagraph2"></a>
-------
+### 2.2 Project Wikis <a name="subparagraph2"></a>
 pending.
 
 
