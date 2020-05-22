@@ -45,7 +45,7 @@ This repository utilizes most of the project management features offered by GitH
 
 * Project's [Issues](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/issues)
 * Project's [Milestones Boards](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/projects)
-* Project's [Milestones Branches](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/branches))
+* Project's [Milestones Branches](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/branches)
 
 Issues will document encountered problems and bugs in the development process and their workarounds and solutions.
 
