@@ -2,7 +2,7 @@
 
 
 # Baxter Robot Teleoperation Demo Video
-[<img src="https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/blob/master/Screenshot%202020-05-22%20at%2015.10.33.png" width="600" align="center">](https://www.youtube.com/watch?v=M65fOXamHPY)
+[<img src="https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/blob/master/images/Screenshot%202020-05-22%20at%2015.10.33.png" width="600" align="center">](https://www.youtube.com/watch?v=M65fOXamHPY)
 
 
 © 2019/2020 The University of Leeds and Mohammed Akram Fajer
@@ -35,7 +35,7 @@ This project is not under active development, but feel free to look around.
 
 This project was developmed with Ubuntua 14.04.6 LTS, ROS Indigo and Python 3.x. The robot model used in the development is [Baxter](https://www.rethinkrobotics.com/) from Rethink Robotics.
 
-<div style="text-align:center"><img src="https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/blob/master/baxter_img.jpg" /></div>
+<div style="text-align:center"><img src="https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/blob/master/images/baxter_img.jpg" /></div>
 
 ## 2. About The Project <a name="paragraph1"></a>
 pending.
