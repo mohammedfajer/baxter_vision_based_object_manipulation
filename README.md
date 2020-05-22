@@ -41,9 +41,17 @@ This project was developmed with Ubuntua 14.04.6 LTS, ROS Indigo and Python 3.x.
 This initial project aim was to implement human-robot handover, later changed due to unforeseen circumstances to vision-based object manipulation as a substitute for human-robot handoff. Nevertheless, one of the initial objectives was to create a teleoperation system where a human operator remotely controls the robot motion by enabling the robot to mimic the human arm motion. Thus this project contains two main parts; one is the teleoperation of Baxter and the other vision-based object manipulation where both explore algorithms in robotic perception and control.
 
 ### 2.1 How to navigate the repository <a name="subparagraph1"></a>
-pending.
+This repository utilizes most of the project management features offered by GitHub. Including Wikis for documentation, issues, milestones and project boards.
+
+* Project's [Issues](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/issues)
+* Project's [Milestones Boards](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/projects)
+* Project's [Milestones Branches](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/branches))
+
+Issues will document encountered problems and bugs in the development process and their workarounds and solutions.
+
+The milestone section links to both the branching concept, where this repository contains an isolated branch for each milestone and the use of todo boards used to track each phase progress. Furthermore, milestone boards consisting of the objectives decomposition and process of completing the subtasks found in each objective.
 
 ### 2.2 Project Wikis <a name="subparagraph2"></a>
-pending.
+All the details regarding how to install, configure and execute the programs alongside notes and guidance for the used resources. All information regarding running the software alongside extra guidance and information about the source code can be found in the project [wikis](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/wiki)
 
 
