@@ -40,7 +40,7 @@ This initial project aim was to implement human-robot handover, later changed du
 ### 2.1 How to navigate the repository <a name="subparagraph1"></a>
 This repository utilizes most of the project management features offered by GitHub. Including Wikis for documentation, issues, milestones and project boards.
 
-* Project's [Issues](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/issues)
+* Project's [Issues](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/issues?q=is%3Aissue+is%3Aclosed)
 * Project's [Milestones Boards](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/projects)
 * Project's [Milestones Branches](https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/branches)
 
