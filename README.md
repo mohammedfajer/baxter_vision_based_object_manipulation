@@ -35,7 +35,7 @@ This project was developmed with Ubuntua 14.04.6 LTS, ROS Indigo and Python 3.x.
 <div style="text-align:center"><img src="https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/blob/master/images/baxter_img.jpg" /></div>
 
 ## 2. About The Project <a name="paragraph1"></a>
-This initial project aim was to implement human-robot handover, later changed due to unforeseen circumstances to vision-based object manipulation as a substitute for human-robot handoff. Nevertheless, one of the initial objectives was to create a teleoperation system where a human operator remotely controls the robot motion by enabling the robot to mimic the human arm motion. Thus this project contains two main parts; one is the teleoperation of Baxter and the other vision-based object manipulation where both explore algorithms in robotic perception and control.
+The initial project aim was to implement human-robot handover, later changed due to unforeseen circumstances to vision-based object manipulation as a substitute for human-robot handoff. Nevertheless, one of the initial objectives was to create a teleoperation system where a human operator remotely controls the robot motion by enabling the robot to mimic the human arm motion. Thus this project contains two main parts; one is the teleoperation of Baxter and the other vision-based object manipulation where both explore algorithms in robotic perception and control.
 
 ### 2.1 How to navigate the repository <a name="subparagraph1"></a>
 This repository utilizes most of the project management features offered by GitHub. Including Wikis for documentation, issues, milestones and project boards.
