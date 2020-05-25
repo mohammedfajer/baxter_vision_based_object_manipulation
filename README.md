@@ -30,7 +30,7 @@ This repository document and host the "Perception and Control of a Bi-manual Ind
 
 This project is not under active development, but feel free to look around.
 
-This project was developmed with Ubuntua 14.04.6 LTS, ROS Indigo and Python 3.x. The robot model used in the development is [Baxter](https://www.rethinkrobotics.com/) from Rethink Robotics.
+This project was developed with Ubuntua 14.04.6 LTS, ROS Indigo and Python 3.x. The robot model used in the development is [Baxter](https://www.rethinkrobotics.com/) from Rethink Robotics.
 
 <div style="text-align:center"><img src="https://github.com/mohammedfajer/baxter_vision_based_object_manipulation/blob/master/images/baxter_img.jpg" /></div>
 
