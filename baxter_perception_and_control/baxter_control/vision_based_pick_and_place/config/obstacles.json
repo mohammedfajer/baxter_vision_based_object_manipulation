@@ -1,0 +1,9 @@
+{
+    "obstacles": [
+        {
+            "obstacle_id": "front_table",
+            "position": "0.9 0.0 -0.1",
+            "shape": "0.913 0.913 0.04"
+        }
+    ]
+}

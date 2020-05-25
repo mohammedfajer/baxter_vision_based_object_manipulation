@@ -1,0 +1,20 @@
+{
+    "obstacles": [
+        {
+            "obstacle_id": "front_table",
+            "position": "1.0 0.0 0.0",
+            "shape": "0.913 0.913 0.04"
+        },
+
+        {
+            "obstacle_id": "left_side_table",
+            "position": "0.0 1.0 0.0",
+            "shape": "0.913 0.913 0.04"
+        },
+        {
+            "obstacle_id":"right_side_table",
+            "position": "0.0 -1.0 0.0",
+            "shape": "0.913 0.913 0.04"
+        }
+    ]
+}
